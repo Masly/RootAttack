@@ -30,6 +30,7 @@ public class RootTile : Tile
         tileController.tileData.spawnPosition = this.transform.GetPosition();
         tileController.tileData.spawnPosition.z = -10;
         tileController.tileData.tileState = tileState;
+        RootMap.Instance().cellSize = tilemap.localBounds.size.x;
         // if (location.x < RootMap.Instance().minGridWidth)
         //     RootMap.Instance().minGridWidth = location.x;
         // if (location.x > RootMap.Instance().maxGridWidth)

@@ -20,6 +20,7 @@ public class RootMap : MonoBehaviour
     public int minGridHeight = -12;
     public int maxGridWidth = 8;
     public int maxGridHeight = 5;
+    [HideInInspector] public float cellSize = 0;
     //[HideInInspector] List<RootTileController> myTiles = new List<RootTileController>();
     public Dictionary<Vector2Int, RootTileController> myTiles = new Dictionary<Vector2Int, RootTileController>();
     void Awake()
