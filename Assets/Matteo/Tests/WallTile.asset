@@ -34,10 +34,11 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 6683551341940236898, guid: 4ace1d11627750f4e864993a0bd0b9e2, type: 3}
   m_Flags: 1
   m_ColliderType: 1
+  tileState: 2
   tileData:
-    position: {x: 0, y: -1}
+    position: {x: -14, y: -1}
     isConnectedToTree: 0
     rootOwner: 2
-    tileState: 0
+    tileState: 2
     spawnPosition: {x: 0, y: 0, z: -10}
   gamePrefabs: {fileID: 11400000, guid: dc22e1a06be399c4384203107cbf964b, type: 2}

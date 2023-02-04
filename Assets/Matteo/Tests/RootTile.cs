@@ -6,8 +6,9 @@ using UnityEngine.Tilemaps;
 public class RootTile : Tile
 {
     public RootTileController tileController;
+    public RootTileData.TileState tileState;
 
-    public RootTileData tileData;
+    [HideInInspector] public RootTileData tileData;
     public PrefabsSO gamePrefabs;
 
     public override bool StartUp(Vector3Int location, ITilemap tilemap, GameObject go)
@@ -23,6 +24,7 @@ public class RootTile : Tile
         tileController.tileData.SetPosition(position);
         tileController.tileData.spawnPosition = this.transform.GetPosition();
         tileController.tileData.spawnPosition.z = -10;
+        tileController.tileData.tileState = tileState;
         if (!RootMap.Instance().myTiles.ContainsKey(position))
             RootMap.Instance().myTiles.Add(position, tileController);
 
