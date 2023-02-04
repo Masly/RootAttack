@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RootSpawner : MonoBehaviour
 {
+    public Player.PlayerID playerID;
     RootMap rootMap;
 
     public int targetRow;
@@ -62,7 +63,7 @@ public class RootSpawner : MonoBehaviour
     {
         bool emptyTile = rootMap.GetTile(row, column).tileData.tileState == RootTileData.TileState.Empty;
         if (!emptyTile) return false;
-        rootMap.GetTile(row, column).SetAsFull();
+        rootMap.GetTile(row, column).SetAsFull(playerID);
         return true;
     }
 }

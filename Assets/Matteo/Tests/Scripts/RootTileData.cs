@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class RootTileData
 {
-    public enum TileState { Empty, Full, Connected, Enemy }
+    public enum TileState { Empty, Full, Obstacle }
     public RootTileData(int row, int column)
     {
         this.row = row;
@@ -12,6 +12,8 @@ public class RootTileData
     }
     public int row;
     public int column;
+    public bool isConnected;
+    public Player.PlayerID rootOwner;
 
     public TileState tileState = TileState.Empty;
 
