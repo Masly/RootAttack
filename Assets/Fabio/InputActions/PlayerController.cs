@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
         plantSeed = characterInputs.Player.Fire;
         plantSeed.Enable();
+        plantSeed.performed += PlantSeed;
     }
 
     private void OnDisable()
@@ -48,5 +49,10 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y = moveDirection.y;
 
         rb.velocity = playerVelocity;
+    }
+
+    private void PlantSeed(InputAction.CallbackContext context)
+    {
+        Debug.Log("We do be plantin'");
     }
 }
