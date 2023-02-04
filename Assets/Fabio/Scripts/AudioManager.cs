@@ -8,13 +8,15 @@ public class AudioManager : MonoBehaviour
     public static AudioManager i;
     [SerializeField] private List<CharacterAudio> characterAudios;
 
-    [Header ("Menu")]
-    [SerializeField] private AudioSource menuTheme;
-    [SerializeField] private AudioSource menuAction;
-
-    [Header ("Play")]
+    [Header ("Audiosources")]
+    [SerializeField] private AudioSource menu;
     [SerializeField] private AudioSource victory;
-    [SerializeField] private AudioSource fightTheme;
+    [SerializeField] private AudioSource owlFlight;
+    [SerializeField] private AudioSource owlHit;
+    [SerializeField] private AudioSource enemyHit;
+    [SerializeField] private AudioSource whistle;
+    [SerializeField] private AudioSource fight;
+    [SerializeField] private AudioSource countDown;
 
     private int groundTypeP1;
     private int groundTypeP2;
@@ -22,15 +24,19 @@ public class AudioManager : MonoBehaviour
     private int groundTypeP4;
 
     #region GettersSetters
+    public AudioSource Whistle { get => whistle; set => whistle = value; }
+    public AudioSource CountDown { get => countDown; set => countDown = value; }
     public List<CharacterAudio> CharacterAudios { get => characterAudios; set => characterAudios = value; }
     public int GroundTypeP1 { get => groundTypeP1; set => groundTypeP1 = value; } // 7, 13 = concrete; 27 = grass; 28 = metal
     public int GroundTypeP2 { get => groundTypeP2; set => groundTypeP2 = value; } // 7, 13 = concrete; 27 = grass; 28 = metal
     public int GroundTypeP3 { get => groundTypeP3; set => groundTypeP3 = value; } // 7, 13 = concrete; 27 = grass; 28 = metal
     public int GroundTypeP4 { get => groundTypeP4; set => groundTypeP4 = value; } // 7, 13 = concrete; 27 = grass; 28 = metal
-    public AudioSource MenuTheme { get => menuTheme; set => menuTheme = value; }
-    public AudioSource MenuAction { get => menuAction; set => menuAction = value; }
+    public AudioSource Menu { get => menu; set => menu = value; }
+    public AudioSource Fight { get => fight; set => fight = value; }
     public AudioSource Victory { get => victory; set => victory = value; }
-    public AudioSource FightTheme { get => fightTheme; set => fightTheme = value; }
+    public AudioSource OwlFlight { get => owlFlight; set => owlFlight = value; }
+    public AudioSource OwlHit { get => owlHit; set => owlHit = value; }
+    public AudioSource EnemyHit { get => enemyHit; set => enemyHit = value; }
     #endregion
 
     void Awake()
@@ -52,6 +58,10 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
 
+        /*if(Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            PlayClipList(characterAudios[0].DoubleJump);
+        }*/
     }
 
     // 1 = Play, 0 = Stop, 2 = Pause
@@ -142,9 +152,10 @@ public class AudioManager : MonoBehaviour
     // Fade out menu theme and fade in fight theme
     public void StartFightAudio()
     {
-        VolumeDown(MenuTheme, 0.001f, 0, true);
-        PlayAudioSource(FightTheme);
-        VolumeUp(FightTheme, 0.001f, 1, false);
+        VolumeDown(Menu, 0.001f, 0, true);
+        PlayAudioSource(Fight);
+        Fight.time = Menu.time;
+        VolumeUp(Fight, 0.001f, 1, false);
     }
 
     public void SelectWalkSoundClip(int index, bool isPlaying = true)
@@ -184,15 +195,20 @@ public class AudioManager : MonoBehaviour
         switch (groundType)
         {
             case 7:
-                PlayClipList(charaAudio.WalkGround);
+                PlayClipList(charaAudio.WalkConcrete);
                 break;
             case 13:
-                PlayClipList(charaAudio.WalkSelfRoot);
+                PlayClipList(charaAudio.WalkConcrete);
                 break;
             case 27:
-                PlayClipList(charaAudio.WalkOtherRoot);
+                PlayClipList(charaAudio.WalkGrass);
+                break;
+            case 28:
+                PlayClipList(charaAudio.WalkMetal);
                 break;
             default:
+                //print("ERROR, GROUND TYPE NOT RECOGNIZED");
+                //print(groundType);
                 break;
 
         }
