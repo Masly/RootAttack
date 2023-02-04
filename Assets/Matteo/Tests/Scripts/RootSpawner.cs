@@ -8,8 +8,7 @@ public class RootSpawner : MonoBehaviour
     public int stepsToFill = 5;
     RootMap rootMap;
 
-    public int targetRow;
-    public int targetColumn;
+    public Vector2Int targetPosition;
     public float fillInterval = 1f;
 
     void Awake()
@@ -19,39 +18,39 @@ public class RootSpawner : MonoBehaviour
     [ContextMenu("Fill Target")]
     public void FillTarget()
     {
-        FillTile(targetRow, targetColumn);
+        FillTile(targetPosition);
     }
 
-    public void FillTile(int row, int column)
+    public void FillTile(Vector2Int pos)
     {
 
 
-        if (!FillIfAble(row, column)) return;
-        StartCoroutine(FillDirection(Vector2Int.left, row, column));
-        StartCoroutine(FillDirection(Vector2Int.right, row, column));
-        StartCoroutine(FillDirection(Vector2Int.up, row, column));
-        StartCoroutine(FillDirection(Vector2Int.down, row, column));
+        if (!FillIfAble(pos)) return;
+        StartCoroutine(FillDirection(Vector2Int.left, pos));
+        StartCoroutine(FillDirection(Vector2Int.right, pos));
+        StartCoroutine(FillDirection(Vector2Int.up, pos));
+        StartCoroutine(FillDirection(Vector2Int.down, pos));
     }
 
-    IEnumerator FillDirection(Vector2Int direction, int row, int column)
+    IEnumerator FillDirection(Vector2Int direction, Vector2Int pos)
     {
-        Vector2Int position = new Vector2Int(row, column);
+
         for (int i = 0; i < stepsToFill; i++)
         {
-            position += direction;
+            pos += direction;
             yield return new WaitForSeconds(fillInterval);
-            if (!FillIfAble(position.x, position.y)) yield break;
+            if (!FillIfAble(pos)) yield break;
         }
     }
 
-    bool FillIfAble(int row, int column)
+    bool FillIfAble(Vector2Int pos)
     {
-        RootTileData tileData = rootMap.GetTile(row, column)?.tileData;
+        RootTileData tileData = rootMap.GetTile(pos)?.tileData;
         if (tileData == null) return false;
         bool isObstacle = tileData.tileState == RootTileData.TileState.Obstacle;
 
         if (isObstacle) return false;
-        rootMap.GetTile(row, column)?.SetAsFull(playerID);
+        rootMap.GetTile(pos)?.SetAsFull(playerID);
         return true;
     }
 

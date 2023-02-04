@@ -46,7 +46,7 @@ public class RootTileController : MonoBehaviour
     public void ConnectToAvailableNeighbours()
     {
         colorChanger.ColorError();
-        List<RootTileController> neighbours = RootMap.Instance().GetNeighbourTiles(tileData.row, tileData.column);
+        List<RootTileController> neighbours = RootMap.Instance().GetNeighbourTiles(tileData.position);
         foreach (RootTileController neighbour in neighbours)
         {
             if (this.tileData.rootOwner == neighbour.tileData.rootOwner)
