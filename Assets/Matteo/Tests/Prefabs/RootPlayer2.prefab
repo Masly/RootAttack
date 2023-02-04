@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 237105874382755450}
   - component: {fileID: 176113251316789993}
   m_Layer: 0
-  m_Name: TempRootPrefab
+  m_Name: RootPlayer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c83baa306f817034c8fd22042df001df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 16bf967020dd17b49b04097feaece988, type: 3}
   m_Color: {r: 0.9339623, g: 0.2876909, b: 0.0035243165, a: 1}
   m_FlipX: 0
   m_FlipY: 0

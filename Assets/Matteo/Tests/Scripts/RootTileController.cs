@@ -9,6 +9,7 @@ public class RootTileController
     public PrefabSpawner spawner;
 
     public GameObject tempPrefab;
+    public PrefabsSO gamePrefabs;
 
     public List<RootTileData> connectedTiles = new List<RootTileData>();
 
@@ -20,6 +21,7 @@ public class RootTileController
     {
 
         this.tileData = tileData;
+        spawner = new PrefabSpawner();
     }
     [ContextMenu("Set as Empty")]
     public void SetAsEmpty()
@@ -46,7 +48,8 @@ public class RootTileController
         tileData.rootOwner = id;
         ConnectToAvailableNeighbours();
         Vector3 spawnPos = new Vector3(tileData.position.x, tileData.position.y, -1);
-        GameObject.Instantiate(tempPrefab, spawnPos, Quaternion.identity);
+        spawner.SpawnRoot(this, id);
+        //GameObject.Instantiate(tempPrefab, spawnPos, Quaternion.identity);
         //colorChanger.ColorFull(tileData.rootOwner);
 
     }
@@ -72,7 +75,6 @@ public class RootTileController
             if (this.tileData.rootOwner == neighbour.tileData.rootOwner)
             {
                 ConnectRoots(this, neighbour);
-
             }
 
         }

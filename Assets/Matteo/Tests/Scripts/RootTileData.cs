@@ -21,7 +21,6 @@ public class RootTileData
 
     public void SetPosition(Vector2Int pos)
     {
-        Debug.LogWarning($"Setting position of {this.GetHashCode()}");
         position = pos;
     }
 }
