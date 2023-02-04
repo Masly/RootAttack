@@ -8,35 +8,26 @@ public class AudioManager : MonoBehaviour
     public static AudioManager i;
     [SerializeField] private List<CharacterAudio> characterAudios;
 
-    [Header ("Audiosources")]
-    [SerializeField] private AudioSource menu;
+    [Header ("Menu")]
+    [SerializeField] private AudioSource menuSounds;
+
+    [Header("Playtime")]
+    [SerializeField] private AudioSource fightTheme;
     [SerializeField] private AudioSource victory;
-    [SerializeField] private AudioSource owlFlight;
-    [SerializeField] private AudioSource owlHit;
-    [SerializeField] private AudioSource enemyHit;
-    [SerializeField] private AudioSource whistle;
-    [SerializeField] private AudioSource fight;
-    [SerializeField] private AudioSource countDown;
+    [SerializeField] private AudioSource timeOut;
 
     private int groundTypeP1;
     private int groundTypeP2;
-    private int groundTypeP3;
-    private int groundTypeP4;
 
     #region GettersSetters
-    public AudioSource Whistle { get => whistle; set => whistle = value; }
-    public AudioSource CountDown { get => countDown; set => countDown = value; }
+    public AudioSource Whistle { get => timeOut; set => timeOut = value; }
+    public AudioSource MenuSounds { get => menuSounds; set => menuSounds = value; }
     public List<CharacterAudio> CharacterAudios { get => characterAudios; set => characterAudios = value; }
-    public int GroundTypeP1 { get => groundTypeP1; set => groundTypeP1 = value; } // 7, 13 = concrete; 27 = grass; 28 = metal
-    public int GroundTypeP2 { get => groundTypeP2; set => groundTypeP2 = value; } // 7, 13 = concrete; 27 = grass; 28 = metal
-    public int GroundTypeP3 { get => groundTypeP3; set => groundTypeP3 = value; } // 7, 13 = concrete; 27 = grass; 28 = metal
-    public int GroundTypeP4 { get => groundTypeP4; set => groundTypeP4 = value; } // 7, 13 = concrete; 27 = grass; 28 = metal
-    public AudioSource Menu { get => menu; set => menu = value; }
-    public AudioSource Fight { get => fight; set => fight = value; }
+    public int GroundTypeP1 { get => groundTypeP1; set => groundTypeP1 = value; }
+    public int GroundTypeP2 { get => groundTypeP2; set => groundTypeP2 = value; }
+    
+    public AudioSource FightTheme { get => fightTheme; set => fightTheme = value; }
     public AudioSource Victory { get => victory; set => victory = value; }
-    public AudioSource OwlFlight { get => owlFlight; set => owlFlight = value; }
-    public AudioSource OwlHit { get => owlHit; set => owlHit = value; }
-    public AudioSource EnemyHit { get => enemyHit; set => enemyHit = value; }
     #endregion
 
     void Awake()
@@ -50,18 +41,11 @@ public class AudioManager : MonoBehaviour
         //StartGameAudio();
         GroundTypeP1 = -1;
         GroundTypeP2 = -1;
-        GroundTypeP3 = -1;
-        GroundTypeP4 = -1;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        /*if(Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            PlayClipList(characterAudios[0].DoubleJump);
-        }*/
     }
 
     // 1 = Play, 0 = Stop, 2 = Pause
@@ -152,10 +136,9 @@ public class AudioManager : MonoBehaviour
     // Fade out menu theme and fade in fight theme
     public void StartFightAudio()
     {
-        VolumeDown(Menu, 0.001f, 0, true);
-        PlayAudioSource(Fight);
-        Fight.time = Menu.time;
-        VolumeUp(Fight, 0.001f, 1, false);
+        VolumeDown(MenuSounds, 0.001f, 0, true);
+        PlayAudioSource(FightTheme);
+        VolumeUp(FightTheme, 0.001f, 1, false);
     }
 
     public void SelectWalkSoundClip(int index, bool isPlaying = true)
@@ -172,16 +155,6 @@ public class AudioManager : MonoBehaviour
                     PlayWalkClip(GroundTypeP2, characterAudios[1]);
                     break;
                 }
-            case 2:
-                {
-                    PlayWalkClip(GroundTypeP3, characterAudios[2]);
-                    break;
-                }
-            case 3:
-                {
-                    PlayWalkClip(GroundTypeP4, characterAudios[3]);
-                    break;
-                }
             default:
                 {
                     print("Player index not recognized!");
@@ -195,22 +168,16 @@ public class AudioManager : MonoBehaviour
         switch (groundType)
         {
             case 7:
-                PlayClipList(charaAudio.WalkConcrete);
+                PlayClipList(charaAudio.WalkGround);
                 break;
             case 13:
-                PlayClipList(charaAudio.WalkConcrete);
+                PlayClipList(charaAudio.WalkSelfRoot);
                 break;
             case 27:
-                PlayClipList(charaAudio.WalkGrass);
-                break;
-            case 28:
-                PlayClipList(charaAudio.WalkMetal);
+                PlayClipList(charaAudio.WalkOpponentRoot);
                 break;
             default:
-                //print("ERROR, GROUND TYPE NOT RECOGNIZED");
-                //print(groundType);
                 break;
-
         }
     }
 } 
