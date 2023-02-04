@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 237105874382755450}
   - component: {fileID: 176113251316789993}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: TempRootPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

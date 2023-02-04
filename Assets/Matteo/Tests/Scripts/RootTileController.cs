@@ -45,7 +45,7 @@ public class RootTileController
             BreakConnections();
         tileData.rootOwner = id;
         ConnectToAvailableNeighbours();
-        Vector3 spawnPos = new Vector3(tileData.position.x, tileData.position.y, -10);
+        Vector3 spawnPos = new Vector3(tileData.position.x, tileData.position.y, -1);
         GameObject.Instantiate(tempPrefab, spawnPos, Quaternion.identity);
         //colorChanger.ColorFull(tileData.rootOwner);
 
