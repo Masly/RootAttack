@@ -2,29 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public class PrefabSpawner
+public class PrefabSpawner : MonoBehaviour
 {
-    GameObject activeObject;
-
-    public void SpawnRoot(GameObject prefab, Vector3 position)
+    public GameObject prefab;
+    public Vector3 spawnPosition;
+    public void Spawn(Vector3 pos)
     {
-        if (activeObject != null)
-            GameObject.Destroy(activeObject);
-        activeObject = GameObject.Instantiate(prefab, position, Quaternion.identity);
-    }
-
-    public void SpawnRoot(RootTileController controller, Player.PlayerID id)
-    {
-        if (activeObject != null)
-            GameObject.Destroy(activeObject);
-        RootTileData tileData = controller.tileData;
-        Vector3 spawnPos = new Vector3(tileData.position.x, tileData.position.y, -1);
-        GameObject prefabToSpawn;
-        if (id == Player.PlayerID.Player1)
-            prefabToSpawn = controller.gamePrefabs.playerPrefabs.player1Roots;
-        else
-            prefabToSpawn = controller.gamePrefabs.playerPrefabs.player2Roots;
-
-        activeObject = GameObject.Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
+        //Vector3 pos = RootMap.Instance().GetTile(position).tileData.spawnPosition;
+        GameObject.Instantiate(prefab, pos, Quaternion.identity);
     }
 }

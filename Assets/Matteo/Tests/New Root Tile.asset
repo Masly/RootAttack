@@ -37,7 +37,6 @@ MonoBehaviour:
   tileData:
     position: {x: 8, y: 5}
     isConnectedToTree: 0
-    rootOwner: 2
-    tileState: 0
+    rootOwner: 0
+    tileState: 1
     spawnPosition: {x: 0, y: 0, z: -10}
-  gamePrefabs: {fileID: 11400000, guid: dc22e1a06be399c4384203107cbf964b, type: 2}
