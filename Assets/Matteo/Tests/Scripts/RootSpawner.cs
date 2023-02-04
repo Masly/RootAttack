@@ -31,7 +31,7 @@ public class RootSpawner : MonoBehaviour
 
     void FillLeft(int row, int column)
     {
-        for (int i = row - 1; i > 0; i--)
+        for (int i = row - 1; i >= 0; i--)
         {
             if (!FillIfAble(i, column)) return;
 
@@ -46,7 +46,7 @@ public class RootSpawner : MonoBehaviour
     }
     void FillDown(int row, int column)
     {
-        for (int j = column - 1; j > 0; j--)
+        for (int j = column - 1; j >= 0; j--)
         {
             if (!FillIfAble(row, j)) return;
         }
@@ -61,9 +61,13 @@ public class RootSpawner : MonoBehaviour
 
     bool FillIfAble(int row, int column)
     {
-        bool emptyTile = rootMap.GetTile(row, column).tileData.tileState == RootTileData.TileState.Empty;
-        if (!emptyTile) return false;
+        RootTileData tileData = rootMap.GetTile(row, column).tileData;
+        bool isObstacle = tileData.tileState == RootTileData.TileState.Obstacle;
+
+        if (isObstacle) return false;
         rootMap.GetTile(row, column).SetAsFull(playerID);
         return true;
     }
+
+
 }

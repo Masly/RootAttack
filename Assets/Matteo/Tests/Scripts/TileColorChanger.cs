@@ -5,9 +5,10 @@ using UnityEngine;
 public class TileColorChanger : MonoBehaviour
 {
     public Color emptyColor;
-    public Color fullColor;
-    public Color enemyColor;
+    public Color player1Color;
+    public Color player2Color;
     public Color connectedColor;
+    public Color errorColor;
 
     MeshRenderer meshRenderer;
     MaterialPropertyBlock materialPropertyBlock;
@@ -24,18 +25,24 @@ public class TileColorChanger : MonoBehaviour
         SetColor(emptyColor);
     }
 
-    public void ColorFull()
-    {
-        SetColor(fullColor);
-    }
+
     public void ColorConnected()
     {
         SetColor(connectedColor);
     }
 
-    public void ColorEnemy()
+    public void ColorError()
     {
-        SetColor(enemyColor);
+        SetColor(errorColor);
+    }
+
+    public void ColorFull(Player.PlayerID id)
+    {
+        // no need to overcomplicate rn
+        if (id == Player.PlayerID.Player1)
+            SetColor(player1Color);
+        else
+            SetColor(player2Color);
     }
 
     void SetColor(Color color)

@@ -100,6 +100,8 @@ MonoBehaviour:
   tileData:
     row: 0
     column: 0
+    isConnected: 0
+    rootOwner: 0
     tileState: 0
   colorChanger: {fileID: 6579123465805335022}
   connectedTiles: []
@@ -116,6 +118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptyColor: {r: 1, g: 1, b: 1, a: 1}
-  fullColor: {r: 1, g: 0.85683566, b: 0.05098039, a: 0}
-  enemyColor: {r: 1, g: 0, b: 0, a: 0}
+  player1Color: {r: 1, g: 0, b: 0.86839294, a: 0}
+  player2Color: {r: 0, g: 1, b: 0.90627193, a: 0}
   connectedColor: {r: 0.0032367706, g: 1, b: 0, a: 0}

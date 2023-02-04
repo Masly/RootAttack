@@ -12,7 +12,7 @@ public class RootTileData
     }
     public int row;
     public int column;
-    public bool isConnected;
+    public bool isConnectedToTree;
     public Player.PlayerID rootOwner;
 
     public TileState tileState = TileState.Empty;
