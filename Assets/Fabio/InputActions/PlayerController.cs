@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = playerVelocity;
     }
 
-    private void PlantSeed(InputAction.CallbackContext context)
+    public void PlantSeed(InputAction.CallbackContext context)
     {
         Debug.Log("We do be plantin'");
     }
