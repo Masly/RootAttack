@@ -5,10 +5,11 @@ using UnityEngine;
 public class RootSpawner : MonoBehaviour
 {
     public Player.PlayerID playerID;
+    public int stepsToFill = 5;
     RootMap rootMap;
 
-    public int targetRow;
-    public int targetColumn;
+    public Vector2Int targetPosition;
+    public float fillInterval = 1f;
 
     void Awake()
     {
@@ -17,53 +18,41 @@ public class RootSpawner : MonoBehaviour
     [ContextMenu("Fill Target")]
     public void FillTarget()
     {
-        FillTile(targetRow, targetColumn);
+        FillTile(targetPosition);
     }
 
-    public void FillTile(int row, int column)
+    public void FillTile(Vector2Int pos)
     {
-        if (!FillIfAble(row, column)) return;
-        FillLeft(row, column);
-        FillRight(row, column);
-        FillUp(row, column);
-        FillDown(row, column);
+
+
+        if (!FillIfAble(pos)) return;
+        StartCoroutine(FillDirection(Vector2Int.left, pos));
+        StartCoroutine(FillDirection(Vector2Int.right, pos));
+        StartCoroutine(FillDirection(Vector2Int.up, pos));
+        StartCoroutine(FillDirection(Vector2Int.down, pos));
     }
 
-    void FillLeft(int row, int column)
+    IEnumerator FillDirection(Vector2Int direction, Vector2Int pos)
     {
-        for (int i = row - 1; i > 0; i--)
-        {
-            if (!FillIfAble(i, column)) return;
 
-        }
-    }
-    void FillRight(int row, int column)
-    {
-        for (int i = row + 1; i < rootMap.gridSize; i++)
+        for (int i = 0; i < stepsToFill; i++)
         {
-            if (!FillIfAble(i, column)) return;
-        }
-    }
-    void FillDown(int row, int column)
-    {
-        for (int j = column - 1; j > 0; j--)
-        {
-            if (!FillIfAble(row, j)) return;
-        }
-    }
-    void FillUp(int row, int column)
-    {
-        for (int j = column + 1; j < rootMap.gridSize; j++)
-        {
-            if (!FillIfAble(row, j)) return;
+            pos += direction;
+            yield return new WaitForSeconds(fillInterval);
+            if (!FillIfAble(pos)) yield break;
         }
     }
 
-    bool FillIfAble(int row, int column)
+    bool FillIfAble(Vector2Int pos)
     {
-        bool emptyTile = rootMap.GetTile(row, column).tileData.tileState == RootTileData.TileState.Empty;
-        if (!emptyTile) return false;
-        rootMap.GetTile(row, column).SetAsFull(playerID);
+        RootTileData tileData = rootMap.GetTile(pos)?.tileData;
+        if (tileData == null) return false;
+        bool isObstacle = tileData.tileState == RootTileData.TileState.Obstacle;
+
+        if (isObstacle) return false;
+        rootMap.GetTile(pos)?.SetAsFull(playerID);
         return true;
     }
+
+
 }

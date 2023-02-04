@@ -6,7 +6,7 @@ public class RootTileController : MonoBehaviour
 {
     public RootTileData tileData;
     public TileColorChanger colorChanger;
-    public List<RootTileData> connectedTiles;
+    public List<RootTileData> connectedTiles = new List<RootTileData>();
 
     void Awake()
     {
@@ -29,21 +29,43 @@ public class RootTileController : MonoBehaviour
         SetAsFull(Player.PlayerID.Player2);
     }
 
-
     public void SetAsFull(Player.PlayerID id)
     {
         tileData.tileState = RootTileData.TileState.Full;
         tileData.rootOwner = id;
-        colorChanger.ColorFull();
+        ConnectToAvailableNeighbours();
+        colorChanger.ColorFull(tileData.rootOwner);
     }
     [ContextMenu("Set as Connected")]
     public void SetAsConnected()
     {
-        tileData.isConnected = true;
+        tileData.isConnectedToTree = true;
         colorChanger.ColorConnected();
     }
 
+    public void ConnectToAvailableNeighbours()
+    {
+        colorChanger.ColorError();
+        List<RootTileController> neighbours = RootMap.Instance().GetNeighbourTiles(tileData.position);
+        foreach (RootTileController neighbour in neighbours)
+        {
+            if (this.tileData.rootOwner == neighbour.tileData.rootOwner)
+            {
+                ConnectRoots(this, neighbour);
 
+            }
 
+        }
+
+    }
+
+    public void ConnectRoots(RootTileController origin, RootTileController neighbour)
+    {
+        if (!neighbour.connectedTiles.Contains(origin.tileData))
+            neighbour.connectedTiles.Add(origin.tileData);
+        if (!origin.connectedTiles.Contains(neighbour.tileData))
+            origin.connectedTiles.Add(neighbour.tileData);
+
+    }
 
 }

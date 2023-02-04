@@ -5,14 +5,12 @@ using UnityEngine;
 public class RootTileData
 {
     public enum TileState { Empty, Full, Obstacle }
-    public RootTileData(int row, int column)
+    public RootTileData(Vector2Int position)
     {
-        this.row = row;
-        this.column = column;
+        this.position = position;
     }
-    public int row;
-    public int column;
-    public bool isConnected;
+    public Vector2Int position;
+    public bool isConnectedToTree;
     public Player.PlayerID rootOwner;
 
     public TileState tileState = TileState.Empty;
@@ -20,9 +18,8 @@ public class RootTileData
 
 
 
-    public void SetCoord(int row, int column)
+    public void SetPosition(Vector2Int pos)
     {
-        this.row = row;
-        this.column = column;
+        position = pos;
     }
 }
