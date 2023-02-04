@@ -5,21 +5,23 @@ using UnityEngine;
 public class RootTileData
 {
     public enum TileState { Empty, Full, Obstacle }
-    public RootTileData(Vector2Int position)
-    {
-        this.position = position;
-    }
+    public RootTileData() { }
+
     public Vector2Int position;
     public bool isConnectedToTree;
-    public Player.PlayerID rootOwner;
+    public Player.PlayerID rootOwner = Player.PlayerID.None;
 
     public TileState tileState = TileState.Empty;
+    public Vector3 spawnPosition;
+
+
 
 
 
 
     public void SetPosition(Vector2Int pos)
     {
+        Debug.LogWarning($"Setting position of {this.GetHashCode()}");
         position = pos;
     }
 }

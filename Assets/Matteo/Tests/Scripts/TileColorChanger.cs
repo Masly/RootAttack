@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TileColorChanger : MonoBehaviour
 {
+
     public Color emptyColor;
     public Color player1Color;
     public Color player2Color;
@@ -28,12 +29,12 @@ public class TileColorChanger : MonoBehaviour
 
     public void ColorConnected()
     {
-        SetColor(connectedColor);
+        // SetColor(connectedColor);
     }
 
     public void ColorError()
     {
-        SetColor(errorColor);
+        // SetColor(errorColor);
     }
 
     public void ColorFull(Player.PlayerID id)
@@ -48,7 +49,7 @@ public class TileColorChanger : MonoBehaviour
     void SetColor(Color color)
     {
         meshRenderer.GetPropertyBlock(materialPropertyBlock);
-        materialPropertyBlock.SetColor("_BaseColor", color);
+        materialPropertyBlock.SetColor("_Color", color);
         meshRenderer.SetPropertyBlock(materialPropertyBlock);
     }
 

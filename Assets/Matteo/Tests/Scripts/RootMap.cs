@@ -16,46 +16,61 @@ public class RootMap : MonoBehaviour
     public Transform tileSpawnParent;
     public GameObject tilePrefab;
     public float spawnDistance = .2f;
-    public int gridSize = 10;
+    public int minGridWidth = -9;
+    public int minGridHeight = -12;
+    public int maxGridWidth = 8;
+    public int maxGridHeight = 5;
     //[HideInInspector] List<RootTileController> myTiles = new List<RootTileController>();
-    Dictionary<Vector2Int, RootTileController> myTiles = new Dictionary<Vector2Int, RootTileController>();
+    public Dictionary<Vector2Int, RootTileController> myTiles = new Dictionary<Vector2Int, RootTileController>();
     void Awake()
     {
-        SpawnTiles();
+        //SpawnTiles();
+    }
+
+    void Start()
+    {
+        Debug.Log($"I have {myTiles.Count} tiles");
+        Invoke("ResetPosHack", 0.2f);
+    }
+
+    void ResetPosHack()
+    {
+        print("Starting hack");
+        foreach (var tile in myTiles)
+        {
+            tile.Value.tileData.SetPosition(tile.Key);
+        }
+        print("Hack finished");
     }
 
 
     void SpawnTiles()
     {
-        for (int i = 0; i < gridSize; i++)
+        for (int i = 0; i < maxGridWidth; i++)
         {
-            for (int j = 0; j < gridSize; j++)
+            for (int j = 0; j < maxGridHeight; j++)
             {
                 SpawnTile(new Vector2Int(i, j));
             }
         }
     }
 
-    void DeleteTiles()
-    {
-        foreach (KeyValuePair<Vector2Int, RootTileController> tile in myTiles)
-        {
-            Destroy(tile.Value.gameObject);
-        }
-    }
+
 
     public void SpawnTile(Vector2Int pos)
     {
+        /*
         Vector3 spawnPosition = new Vector3(pos.x * spawnDistance, pos.y * spawnDistance, 0);
         GameObject newTile = GameObject.Instantiate(tilePrefab, spawnPosition, Quaternion.identity, tileSpawnParent);
         RootTileController tileController = newTile.GetComponent<RootTileController>();
         tileController.tileData.SetPosition(pos);
         myTiles.Add(pos, tileController);
+        */
     }
 
     public RootTileController GetTile(Vector2Int pos)
     {
-        if (pos.x < 0 || pos.x > gridSize - 1 || pos.y < 0 || pos.y > gridSize - 1) return null;
+        if (pos.x < minGridWidth || pos.x > maxGridWidth || pos.y < minGridHeight || pos.y > maxGridHeight) return null;
         RootTileController tile = myTiles[pos];
         Assert.IsNotNull(tile);
         return tile;
@@ -64,11 +79,11 @@ public class RootMap : MonoBehaviour
     public List<RootTileController> GetNeighbourTiles(Vector2Int pos)
     {
         List<RootTileController> neighbours = new List<RootTileController>();
-        if (pos.x < gridSize - 1)
+        if (pos.x < maxGridWidth - 1)
             neighbours.Add(GetTile(new Vector2Int(pos.x + 1, pos.y)));
         if (pos.x > 0)
             neighbours.Add(GetTile(new Vector2Int(pos.x - 1, pos.y)));
-        if (pos.y < gridSize - 1)
+        if (pos.y < maxGridHeight - 1)
             neighbours.Add(GetTile(new Vector2Int(pos.x, pos.y + 1)));
         if (pos.y > 0)
             neighbours.Add(GetTile(new Vector2Int(pos.x, pos.y - 1)));

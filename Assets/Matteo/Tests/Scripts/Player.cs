@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public enum PlayerID { Player1, Player2 }
+    public enum PlayerID { Player1, Player2, None }
     public PlayerID playerID;
 }
