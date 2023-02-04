@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46387389ebe473046b6d1759ed93d178, type: 3}
-  m_Name: New Root Tile
+  m_Name: GroundTile
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: 99990dc2ea1703740849ddacf7f919c2, type: 3}
-  m_Color: {r: 0.49050936, g: 1, b: 0.09811318, a: 1}
+  m_Color: {r: 0.5, g: 0.22024405, b: 0, a: 1}
   m_Transform:
     e00: 1
     e01: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
   m_Flags: 1
   m_ColliderType: 1
   tileData:
-    position: {x: 8, y: 5}
+    position: {x: 3, y: -1}
     isConnectedToTree: 0
     rootOwner: 2
     tileState: 0
