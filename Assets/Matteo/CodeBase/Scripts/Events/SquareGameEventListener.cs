@@ -13,7 +13,7 @@ namespace CodeBase.Events
         {
             public SquareEventData() { }
             public List<SquareEvent> triggers = new List<SquareEvent>();
-            public UnityEvent responses = new UnityEvent();
+            public UnityEvent<Vector2Int> responses = new UnityEvent<Vector2Int>();
             public bool triggersOnce = false;
             public float delay = 0;
             [HideInInspector] public bool alreadyTriggered = false;
@@ -28,7 +28,7 @@ namespace CodeBase.Events
             StartCoroutine(WaitAndRaiseEvent(eventToInvoke, delay));
         }
 
-        public bool IsMethodInAnyEvent(UnityAction method)
+        public bool IsMethodInAnyEvent(UnityAction<Vector2Int> method)
         {
             bool found = false;
 
@@ -38,7 +38,7 @@ namespace CodeBase.Events
             }
             return found;
         }
-        public bool IsMethodInEventData(UnityAction method, SquareEventData eventData)
+        public bool IsMethodInEventData(UnityAction<Vector2Int> method, SquareEventData eventData)
         {
             bool found = false;
             string methodName = method.Method.Name;
@@ -50,7 +50,7 @@ namespace CodeBase.Events
             return found;
         }
 
-        public void AddAction(SquareEvent trigger, UnityAction action, bool triggersOnce = false, float delay = 0)
+        public void AddAction(SquareEvent trigger, UnityAction<Vector2Int> action, bool triggersOnce = false, float delay = 0)
         {
             bool actionFound = false;
             //See if that trigger already calls the action
@@ -69,7 +69,7 @@ namespace CodeBase.Events
                 SquareEventData newEventData = new SquareEventData();
                 newEventData.triggers.Add(trigger);
                 newEventData.responses.AddListener(action);
-                newEventData.action = Vector2Int => Callback(newEventData);
+                newEventData.action = coord => Callback(newEventData, coord);
                 trigger.RegisterListener(newEventData.action);
             }
 
@@ -82,7 +82,7 @@ namespace CodeBase.Events
                 foreach (SquareEvent trigger in eventData.triggers)
                 {
                     if (trigger == null) continue;
-                    eventData.action = Vector2Int => Callback(eventData);
+                    eventData.action = coord => Callback(eventData, coord);
                     trigger.RegisterListener(eventData.action);
                 }
             }
@@ -100,19 +100,19 @@ namespace CodeBase.Events
             }
         }
 
-        private void Callback(SquareEventData data)
+        private void Callback(SquareEventData data, Vector2Int coord)
         {
             if (!data.triggersOnce || !data.alreadyTriggered)
             {
                 data.alreadyTriggered = true;
-                StartCoroutine(WaitAndInvokeEvent(data.responses, data.delay));
+                StartCoroutine(WaitAndInvokeEvent(data.responses, data.delay, coord));
             }
         }
 
-        IEnumerator WaitAndInvokeEvent(UnityEvent eventToInvoke, float delay)
+        IEnumerator WaitAndInvokeEvent(UnityEvent<Vector2Int> eventToInvoke, float delay, Vector2Int coord)
         {
             yield return new WaitForSeconds(delay);
-            eventToInvoke.Invoke();
+            eventToInvoke.Invoke(coord);
         }
 
         IEnumerator WaitAndRaiseEvent(SquareEvent eventToRaise, float delay)
