@@ -9,6 +9,7 @@ public class RootSpawner : MonoBehaviour
 
     public int targetRow;
     public int targetColumn;
+    public float fillInterval = 1f;
 
     void Awake()
     {
@@ -22,41 +23,52 @@ public class RootSpawner : MonoBehaviour
 
     public void FillTile(int row, int column)
     {
+
+
         if (!FillIfAble(row, column)) return;
-        FillLeft(row, column);
-        FillRight(row, column);
-        FillUp(row, column);
-        FillDown(row, column);
+        StartCoroutine(FillLeft(row, column));
+        StartCoroutine(FillRight(row, column));
+        StartCoroutine(FillUp(row, column));
+        StartCoroutine(FillDown(row, column));
+
     }
 
-    void FillLeft(int row, int column)
+
+    IEnumerator FillLeft(int row, int column)
     {
         for (int i = row - 1; i >= 0; i--)
         {
-            if (!FillIfAble(i, column)) return;
-
+            yield return new WaitForSeconds(fillInterval);
+            if (!FillIfAble(i, column)) yield break;
         }
+
     }
-    void FillRight(int row, int column)
+    IEnumerator FillRight(int row, int column)
     {
         for (int i = row + 1; i < rootMap.gridSize; i++)
         {
-            if (!FillIfAble(i, column)) return;
+            yield return new WaitForSeconds(fillInterval);
+            if (!FillIfAble(i, column)) yield break;
         }
+
     }
-    void FillDown(int row, int column)
+    IEnumerator FillDown(int row, int column)
     {
         for (int j = column - 1; j >= 0; j--)
         {
-            if (!FillIfAble(row, j)) return;
+            yield return new WaitForSeconds(fillInterval);
+            if (!FillIfAble(row, j)) yield break;
         }
+
     }
-    void FillUp(int row, int column)
+    IEnumerator FillUp(int row, int column)
     {
         for (int j = column + 1; j < rootMap.gridSize; j++)
         {
-            if (!FillIfAble(row, j)) return;
+            yield return new WaitForSeconds(fillInterval);
+            if (!FillIfAble(row, j)) yield break;
         }
+
     }
 
     bool FillIfAble(int row, int column)
