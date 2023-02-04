@@ -45,8 +45,8 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        playerVelocity.x = moveDirection.x;
-        playerVelocity.y = moveDirection.y;
+        playerVelocity.x = moveDirection.x * moveSpeed;
+        playerVelocity.y = moveDirection.y * moveSpeed;
 
         rb.velocity = playerVelocity;
     }
