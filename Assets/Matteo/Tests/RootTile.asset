@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46387389ebe473046b6d1759ed93d178, type: 3}
   m_Name: RootTile
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 99990dc2ea1703740849ddacf7f919c2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e29552bb041a7884293306e797be4428, type: 3}
   m_Color: {r: 0.093096934, g: 0.5660378, b: 0.0026699959, a: 1}
   m_Transform:
     e00: 1
@@ -34,6 +34,7 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 6683551341940236898, guid: 4ace1d11627750f4e864993a0bd0b9e2, type: 3}
   m_Flags: 1
   m_ColliderType: 1
+  tileState: 0
   tileData:
     position: {x: 0, y: 0}
     isConnectedToTree: 0
