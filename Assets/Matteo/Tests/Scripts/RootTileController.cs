@@ -11,7 +11,7 @@ public class RootTileController
     public GameObject tempPrefab;
     public PrefabsSO gamePrefabs;
 
-    public List<RootTileData> connectedTiles = new List<RootTileData>();
+    public List<RootTileController> connectedTiles = new List<RootTileController>();
 
     public RootTileController()
     {
@@ -83,10 +83,10 @@ public class RootTileController
 
     public void ConnectRoots(RootTileController origin, RootTileController neighbour)
     {
-        if (!neighbour.connectedTiles.Contains(origin.tileData))
-            neighbour.connectedTiles.Add(origin.tileData);
-        if (!origin.connectedTiles.Contains(neighbour.tileData))
-            origin.connectedTiles.Add(neighbour.tileData);
+        if (!neighbour.connectedTiles.Contains(origin))
+            neighbour.connectedTiles.Add(origin);
+        if (!origin.connectedTiles.Contains(neighbour))
+            origin.connectedTiles.Add(neighbour);
 
     }
 

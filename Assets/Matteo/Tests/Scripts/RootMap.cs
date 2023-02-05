@@ -23,6 +23,12 @@ public class RootMap : MonoBehaviour
     [HideInInspector] public float cellSize = 0;
     //[HideInInspector] List<RootTileController> myTiles = new List<RootTileController>();
     public Dictionary<Vector2Int, RootTileController> myTiles = new Dictionary<Vector2Int, RootTileController>();
+    //remember to hide this
+    public List<Tracer> tracers = new List<Tracer>();
+    public List<Tracer> tracersToBeAdded = new List<Tracer>();
+
+    public Vector2Int tracingStart;
+
     void Awake()
     {
         //SpawnTiles();
@@ -32,6 +38,49 @@ public class RootMap : MonoBehaviour
     {
         Debug.Log($"I have {myTiles.Count} tiles");
         Invoke("ResetPosHack", 0.2f);
+    }
+    void Update()
+    {
+
+        List<Tracer> tracersToRemove1 = new List<Tracer>();
+        List<Tracer> tracersToRemove2 = new List<Tracer>();
+        foreach (Tracer tracerToBeAdded in tracersToBeAdded)
+        {
+            tracers.Add(tracerToBeAdded);
+            tracersToRemove2.Add(tracerToBeAdded);
+
+        }
+        foreach (Tracer tracer in tracers)
+        {
+            if (!tracer.Tick())
+                tracersToRemove1.Add(tracer);
+        }
+        foreach (Tracer tracerToRemove in tracersToRemove1)
+        {
+            tracers.Remove(tracerToRemove);
+        }
+        foreach (Tracer tracerToRemove in tracersToRemove2)
+        {
+            tracersToBeAdded.Remove(tracerToRemove);
+        }
+        // //loop in reverse to be able to delete items
+        // for (int i = tracers.Count - 1; i >= 0; i--)
+        // {
+        //     if (!tracers[i].Tick())
+        //         //Debug.LogWarning("I should remove tracer");
+        //         tracers.RemoveAt(i);
+        // }
+    }
+
+    [ContextMenu("Start tracer at tracingStart")]
+    //this will only work if placed at the start of a root
+    void StartTracing()
+    {
+        RootTileController mockupTree = GetTile(tracingStart);
+        mockupTree.tileData.tileState = RootTileData.TileState.TreeOrigin;
+        mockupTree.tileData.isConnectedToTree = true;
+        Tracer newTracer = new Tracer(mockupTree, null);
+
     }
 
     void ResetPosHack()
@@ -82,11 +131,11 @@ public class RootMap : MonoBehaviour
         List<RootTileController> neighbours = new List<RootTileController>();
         if (pos.x < maxGridWidth - 1)
             neighbours.Add(GetTile(new Vector2Int(pos.x + 1, pos.y)));
-        if (pos.x > 0)
+        if (pos.x > minGridWidth + 1)
             neighbours.Add(GetTile(new Vector2Int(pos.x - 1, pos.y)));
         if (pos.y < maxGridHeight - 1)
             neighbours.Add(GetTile(new Vector2Int(pos.x, pos.y + 1)));
-        if (pos.y > 0)
+        if (pos.y > minGridWidth + 1)
             neighbours.Add(GetTile(new Vector2Int(pos.x, pos.y - 1)));
         return neighbours;
     }
