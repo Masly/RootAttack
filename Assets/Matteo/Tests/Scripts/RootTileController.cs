@@ -56,7 +56,12 @@ public class RootTileController
 
     private void BreakConnections()
     {
-        //
+        List<RootTileController> neighbours = RootMap.Instance().GetNeighbourTiles(tileData.position);
+        foreach (RootTileController neighbour in neighbours)
+        {
+            if (this.tileData.rootOwner != neighbour.tileData.rootOwner)
+                UnConnectRoots(this, neighbour);
+        }
     }
 
     [ContextMenu("Set as Connected")]
@@ -87,6 +92,15 @@ public class RootTileController
             neighbour.connectedTiles.Add(origin);
         if (!origin.connectedTiles.Contains(neighbour))
             origin.connectedTiles.Add(neighbour);
+
+    }
+
+    public void UnConnectRoots(RootTileController origin, RootTileController neighbour)
+    {
+        if (neighbour.connectedTiles.Contains(origin))
+            neighbour.connectedTiles.Remove(origin);
+        if (origin.connectedTiles.Contains(neighbour))
+            origin.connectedTiles.Remove(neighbour);
 
     }
 

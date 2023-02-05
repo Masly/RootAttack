@@ -72,7 +72,7 @@ public class Tracer
                 foreach (RootTileController nextTile in availableConnections)
                 {
 
-
+                    if (nextTile.tileData.isConnectedToTree == true) continue;
                     Tracer newTracer = new Tracer(nextTile, currentTile);
                     RootMap.Instance().tracersToBeAdded.Add(newTracer);
 
