@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
 
         // Stop victory theme and start menu theme
         AudioManager.i.PlayAudioSource(AudioManager.i.Victory, 0);
-        //blurFXManager.ShowBlurEffect();
+        blurFXManager.ShowBlurEffect();
 
     }
 
