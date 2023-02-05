@@ -30,6 +30,9 @@ public class RootMap : MonoBehaviour
     public Vector2Int tracingStart;
     public SquareRootsEventsSO squareRootEvents;
 
+    RootTileController player1Tree;
+    RootTileController player2Tree;
+
     void Awake()
     {
         //SpawnTiles();
@@ -64,23 +67,35 @@ public class RootMap : MonoBehaviour
         {
             tracersToBeAdded.Remove(tracerToRemove);
         }
-        // //loop in reverse to be able to delete items
-        // for (int i = tracers.Count - 1; i >= 0; i--)
-        // {
-        //     if (!tracers[i].Tick())
-        //         //Debug.LogWarning("I should remove tracer");
-        //         tracers.RemoveAt(i);
-        // }
     }
 
     [ContextMenu("Start tracer at tracingStart")]
     //this will only work if placed at the start of a root
-    void StartTracing()
+    void StartTracingDebug()
     {
         RootTileController mockupTree = GetTile(tracingStart);
-        mockupTree.tileData.tileState = RootTileData.TileState.TreeOrigin;
+        //mockupTree.tileData.tileState = RootTileData.TileState.TreeOrigin;
         mockupTree.tileData.isConnectedToTree = true;
         Tracer newTracer = new Tracer(mockupTree, null);
+        squareRootEvents.resetScoreEvent.Raise();
+    }
+    void Track(Vector2Int unusedVariable)
+    {
+        StartTrackingTree1();
+        StartTrackingTree2();
+    }
+
+    void StartTrackingTree1()
+    {
+        player1Tree.tileData.isConnectedToTree = true;
+        Tracer newTracer = new Tracer(player1Tree, null);
+        squareRootEvents.resetScoreEvent.Raise();
+    }
+
+    void StartTrackingTree2()
+    {
+        player2Tree.tileData.isConnectedToTree = true;
+        Tracer newTracer = new Tracer(player2Tree, null);
         squareRootEvents.resetScoreEvent.Raise();
     }
 
@@ -90,6 +105,10 @@ public class RootMap : MonoBehaviour
         foreach (var tile in myTiles)
         {
             tile.Value.tileData.SetPosition(tile.Key);
+            if (tile.Value.tileData.tileState == RootTileData.TileState.TreeOrigin1)
+                player1Tree = tile.Value;
+            if (tile.Value.tileData.tileState == RootTileData.TileState.TreeOrigin2)
+                player2Tree = tile.Value;
         }
         print("Hack finished");
     }
@@ -139,5 +158,15 @@ public class RootMap : MonoBehaviour
         if (pos.y > minGridWidth + 1)
             neighbours.Add(GetTile(new Vector2Int(pos.x, pos.y - 1)));
         return neighbours;
+    }
+
+    void OnEnable()
+    {
+        squareRootEvents.rootSpawnedEvent.RegisterListener(Track);
+    }
+
+    void OnDisable()
+    {
+        squareRootEvents.rootSpawnedEvent.UnregisterListener(Track);
     }
 }

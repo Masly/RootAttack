@@ -15,3 +15,4 @@ MonoBehaviour:
   player1IncreaseScoreEvent: {fileID: 11400000, guid: c82fdc8fd1568214e86bb78b7fff8260, type: 2}
   player2IncreaseScoreEvent: {fileID: 11400000, guid: c4cf1645ebb1ae644b853288f4964ef4, type: 2}
   resetScoreEvent: {fileID: 11400000, guid: 5871a7ee744f4ba49883aa72028aed2d, type: 2}
+  rootSpawnedEvent: {fileID: 11400000, guid: 5a74c00a37dd56a4bb4b6393f669dfab, type: 2}

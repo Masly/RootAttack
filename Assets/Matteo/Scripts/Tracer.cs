@@ -45,7 +45,8 @@ public class Tracer
             case 1:
 
                 //bool isConnectedOnlyToTree = availableConnections[0].tileData.tileState == RootTileData.TileState.TreeOrigin;
-                bool isThisTree = currentTile.tileData.tileState == RootTileData.TileState.TreeOrigin;
+                bool isThisTree = currentTile.tileData.tileState == RootTileData.TileState.TreeOrigin1 ||
+                                    currentTile.tileData.tileState == RootTileData.TileState.TreeOrigin2;
                 if (!isThisTree)
                 {
                     FlagAsConnected(currentTile);

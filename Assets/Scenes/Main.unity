@@ -5714,10 +5714,10 @@ Tilemap:
   - first: {x: -6, y: 1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 1
+      m_TileIndex: 2
       m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
+      m_TileColorIndex: 2
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
@@ -5824,10 +5824,10 @@ Tilemap:
   - first: {x: 5, y: 1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 1
+      m_TileIndex: 0
       m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
+      m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
@@ -6583,10 +6583,12 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 324
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 8e35e62ed2c25414caf0aa97cfd4c5aa, type: 2}
+  - m_RefCount: 322
     m_Data: {fileID: 11400000, guid: 1ccf16aa8b00abf4ba71e16f6f8a8d34, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 0c304156c5dfbec40b47d63cb6888558, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -6612,10 +6614,12 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 324
+  - m_RefCount: 322
     m_Data: {r: 0.5, g: 0.22024405, b: 0, a: 1}
-  - m_RefCount: 0
-    m_Data: {r: 4.0315e-41, g: 4.0315e-41, b: 4.0315e-41, a: 4.0315e-41}
+  - m_RefCount: 1
+    m_Data: {r: 0, g: 1, b: 0.65647364, a: 1}
+  - m_RefCount: 1
+    m_Data: {r: 0.9811321, g: 0, b: 0.90330034, a: 1}
   m_TileObjectToInstantiateArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -8631,6 +8635,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7961366690580937193, guid: b5b1a398b7934664590b9882c174908b, type: 3}
+      propertyPath: squareRootEvents
+      value: 
+      objectReference: {fileID: 11400000, guid: 9a21c0b800c48cc49977dde72728da3d, type: 2}
     - target: {fileID: 7961366690580937194, guid: b5b1a398b7934664590b9882c174908b, type: 3}
       propertyPath: m_Name
       value: SquareContainerAccess
