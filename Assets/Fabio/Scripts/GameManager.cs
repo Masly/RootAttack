@@ -88,6 +88,8 @@ public class GameManager : MonoBehaviour
         HideCanvases();
         ShowTitleScreen();
 
+        AudioManager.i.VolumeUp(AudioManager.i.FightTheme, 0.3f);
+
         // Needed for matchTime
         timer = 0;
         isSlowingDown = false;
@@ -234,7 +236,7 @@ public class GameManager : MonoBehaviour
         {
             retval = 0;
         }
-        else 
+        else
         {
             retval = 1;
         }
@@ -243,11 +245,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject GetPlayerObjectFromIndex(int playerIndex)
     {
-            if (playerIndex == 0)
-                return player1;
-            else if (playerIndex == 1)
-                return player2;
-        
+        if (playerIndex == 0)
+            return player1;
+        else if (playerIndex == 1)
+            return player2;
+
         return null;
     }
 
@@ -284,12 +286,12 @@ public class GameManager : MonoBehaviour
         if (playerIndex == 0)
         {
             if (scorePlayer1 > 0)
-                scorePlayer1-= pointsAmount;
+                scorePlayer1 -= pointsAmount;
         }
         else if (playerIndex == 1)
         {
             if (scorePlayer2 > 0)
-                scorePlayer2-= pointsAmount;
+                scorePlayer2 -= pointsAmount;
         }
 
         UpdateScoreUI();
