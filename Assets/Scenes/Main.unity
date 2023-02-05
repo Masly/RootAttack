@@ -465,10 +465,50 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -200995361555293980, guid: e4f4139ce058fc04fb31094633ae2b0c, type: 2}
+    - target: {fileID: 3363363854417258489, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: maxPitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854417258489, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: minPitch
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854417258489, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: randomPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854417258489, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854417258489, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: c3dcea59315df5f4daf08eec21ab9c68, type: 3}
     - target: {fileID: 3363363854651744045, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -7109773783897895008, guid: e4f4139ce058fc04fb31094633ae2b0c, type: 2}
+    - target: {fileID: 3363363854651744046, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: maxPitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854651744046, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: minPitch
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854651744046, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: randomPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854651744046, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854651744046, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 24ee2f51be159f147b0f0475901beef0, type: 3}
     - target: {fileID: 3363363854954081900, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
@@ -477,6 +517,26 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -6134109077442003422, guid: e4f4139ce058fc04fb31094633ae2b0c, type: 2}
+    - target: {fileID: 3363363855042373393, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: maxPitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363855042373393, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: minPitch
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363855042373393, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: randomPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363855042373393, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363855042373393, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: ea9da5107d591c14ab74d5a407196595, type: 3}
     - target: {fileID: 3363363855446587414, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
@@ -721,6 +781,26 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 3382723129244888333, guid: e4f4139ce058fc04fb31094633ae2b0c, type: 2}
+    - target: {fileID: 5482509547208882808, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: maxPitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482509547208882808, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: minPitch
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482509547208882808, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: randomPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482509547208882808, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482509547208882808, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 658757361927a704e94ba0758ae42fb3, type: 3}
     - target: {fileID: 7116795460333822956, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
@@ -1111,7 +1191,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3117e45bc8d9e3347ae1b34cf4f3f518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: df426f3eda9125f44a1e07d1c4fd9e3d, type: 3}
+  - {fileID: 8300000, guid: c66ea9c5ec304ca469d2542cb34087f7, type: 3}
+  - {fileID: 8300000, guid: fb2fac65c8862314193118be53bacb12, type: 3}
+  - {fileID: 8300000, guid: 18fd94cfcf1f3de4f9c5bc8cc0d60128, type: 3}
+  - {fileID: 8300000, guid: 14955cbb57fa7594285b45df6449393b, type: 3}
   source: {fileID: 516993035}
   randomPitch: 0
   minPitch: 0
@@ -8233,10 +8318,50 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 2826811066791418477, guid: e4f4139ce058fc04fb31094633ae2b0c, type: 2}
+    - target: {fileID: 3363363854417258489, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: maxPitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854417258489, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: minPitch
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854417258489, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: randomPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854417258489, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854417258489, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 43994edaf372c434cbd5bea403ef0d47, type: 3}
     - target: {fileID: 3363363854651744045, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 2074440520773538411, guid: e4f4139ce058fc04fb31094633ae2b0c, type: 2}
+    - target: {fileID: 3363363854651744046, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: maxPitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854651744046, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: minPitch
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854651744046, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: randomPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854651744046, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363854651744046, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 24ee2f51be159f147b0f0475901beef0, type: 3}
     - target: {fileID: 3363363854954081900, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
@@ -8245,6 +8370,26 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 8153939302796589563, guid: e4f4139ce058fc04fb31094633ae2b0c, type: 2}
+    - target: {fileID: 3363363855042373393, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: maxPitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363855042373393, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: minPitch
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363855042373393, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: randomPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363855042373393, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363363855042373393, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 41f11cf5febbb3b43b515ef9e9981900, type: 3}
     - target: {fileID: 3363363855446587414, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
@@ -8489,6 +8634,30 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -8477154877030609279, guid: e4f4139ce058fc04fb31094633ae2b0c, type: 2}
+    - target: {fileID: 5482509547208882808, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: maxPitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482509547208882808, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: minPitch
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482509547208882808, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: randomPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482509547208882808, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482509547208882808, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 658757361927a704e94ba0758ae42fb3, type: 3}
+    - target: {fileID: 7116795460333822956, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 658757361927a704e94ba0758ae42fb3, type: 3}
     - target: {fileID: 7116795460333822956, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
