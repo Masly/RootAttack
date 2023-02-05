@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class RootTileData
 {
-    public enum TileState { Empty, Full, Obstacle }
+    public enum TileState { Empty, Full, Obstacle, TreeOrigin }
     public RootTileData() { }
 
     public Vector2Int position;

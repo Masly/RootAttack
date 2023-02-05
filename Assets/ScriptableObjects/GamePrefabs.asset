@@ -15,3 +15,4 @@ MonoBehaviour:
   playerPrefabs:
     player1Roots: {fileID: 7289065388528385736, guid: 707e58e862ed3a94b9a6899b474809cc, type: 3}
     player2Roots: {fileID: 7289065388528385736, guid: 45cc7d7251b6dc843a317319f5a35967, type: 3}
+  debugPrefab: {fileID: 8476029195390552854, guid: 880f813a34f84764a8f976224b08c1ba, type: 3}

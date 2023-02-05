@@ -13,6 +13,7 @@ public class PrefabSpawner
         activeObject = GameObject.Instantiate(prefab, position, Quaternion.identity);
     }
 
+
     public void SpawnRoot(RootTileController controller, Player.PlayerID id)
     {
         if (activeObject != null)
@@ -25,6 +26,14 @@ public class PrefabSpawner
         else
             prefabToSpawn = controller.gamePrefabs.playerPrefabs.player2Roots;
 
+        activeObject = GameObject.Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
+    }
+    //this is only to check if Tracer is working correctly
+    public void SpawnDebug(RootTileController controller)
+    {
+        RootTileData tileData = controller.tileData;
+        Vector3 spawnPos = new Vector3(tileData.position.x, tileData.position.y, -1);
+        GameObject prefabToSpawn = controller.gamePrefabs.debugPrefab;
         activeObject = GameObject.Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
     }
 }

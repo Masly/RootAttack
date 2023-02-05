@@ -14,6 +14,7 @@ public class RootTile : Tile
 
     public override bool StartUp(Vector3Int location, ITilemap tilemap, GameObject go)
     {
+
         tileData = new RootTileData();
         tileController = new RootTileController(tileData);
         tileController.gamePrefabs = gamePrefabs;
@@ -21,6 +22,10 @@ public class RootTile : Tile
 
         //tileController = new RootTileController(spawner);
         Vector2Int position = new Vector2Int(location.x, location.y);
+        if (position == new Vector2Int(5, 6))
+        {
+            Debug.Log("");
+        }
         // TileData myTileData = new TileData();
         // GetTileData(location, tilemap, ref myTileData);
         // Vector3 tileLocalPosition = myTileData.transform.GetColumn(3);
@@ -30,6 +35,9 @@ public class RootTile : Tile
         tileController.tileData.spawnPosition = this.transform.GetPosition();
         tileController.tileData.spawnPosition.z = -10;
         tileController.tileData.tileState = tileState;
+        float tileMapTotalSize = tilemap.localBounds.size.x;
+        float cellSize = tileMapTotalSize / (float)tilemap.cellBounds.size.x;
+        RootMap.Instance().cellSize = cellSize;
         // if (location.x < RootMap.Instance().minGridWidth)
         //     RootMap.Instance().minGridWidth = location.x;
         // if (location.x > RootMap.Instance().maxGridWidth)

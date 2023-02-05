@@ -15,12 +15,13 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource fightTheme;
     [SerializeField] private AudioSource victory;
     [SerializeField] private AudioSource timeOut;
+    [SerializeField] private AudioSource countDown;
 
     private int groundTypeP1;
     private int groundTypeP2;
 
     #region GettersSetters
-    public AudioSource Whistle { get => timeOut; set => timeOut = value; }
+    public AudioSource TimeOut { get => timeOut; set => timeOut = value; }
     public AudioSource MenuSounds { get => menuSounds; set => menuSounds = value; }
     public List<CharacterAudio> CharacterAudios { get => characterAudios; set => characterAudios = value; }
     public int GroundTypeP1 { get => groundTypeP1; set => groundTypeP1 = value; }
@@ -28,6 +29,7 @@ public class AudioManager : MonoBehaviour
     
     public AudioSource FightTheme { get => fightTheme; set => fightTheme = value; }
     public AudioSource Victory { get => victory; set => victory = value; }
+    public AudioSource CountDown { get => countDown; set => countDown = value; }
     #endregion
 
     void Awake()

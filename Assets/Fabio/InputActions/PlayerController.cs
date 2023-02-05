@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CharacterInputs characterInputs;
     private InputAction move;
     private InputAction plantSeed;
+    private InputAction pauseGame;
+    Player player;
     private Vector2 moveDirection = Vector2.zero;
     private Vector2 playerVelocity = Vector2.zero;
 
@@ -21,23 +23,49 @@ public class PlayerController : MonoBehaviour
     }
     private void OnEnable()
     {
-        move = characterInputs.Player.Move;
+        if (player.playerID == Player.PlayerID.Player1)
+        {
+            move = characterInputs.Player.MoveP1;
+        } else
+        {
+            move = characterInputs.Player.MoveP2;
+        }
+        
         move.Enable();
 
         plantSeed = characterInputs.Player.Fire;
         plantSeed.Enable();
         plantSeed.performed += PlantSeed;
+
+        pauseGame = characterInputs.Player.PauseGame;
+        pauseGame.Enable();
+        pauseGame.performed += PauseGame;
     }
+
+    
 
     private void OnDisable()
     {
         move.Disable();
         plantSeed.Disable();
+        pauseGame.Disable();
     }
 
     private void Start()
     {
         rb = transform.GetComponent<Rigidbody2D>();
+        player = transform.gameObject.GetComponent<Player>();
+
+        if (player.playerID == Player.PlayerID.Player1)
+        {
+            move = characterInputs.Player.MoveP1;
+        }
+        else
+        {
+            move = characterInputs.Player.MoveP2;
+        }
+
+        move.Enable();
     }
     private void Update()
     {
@@ -53,6 +81,11 @@ public class PlayerController : MonoBehaviour
 
     public void PlantSeed(InputAction.CallbackContext context)
     {
-        Debug.Log("We do be plantin'");
+        GetComponent<Player>().SpawnRoots();
+    }
+
+    public void PauseGame(InputAction.CallbackContext context)
+    {
+        GameManager.i.TogglePause();
     }
 }

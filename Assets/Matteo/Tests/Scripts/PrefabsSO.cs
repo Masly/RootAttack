@@ -13,4 +13,6 @@ public class PrefabsSO : ScriptableObject
 
     public PlayerPrefabs playerPrefabs;
 
+    public GameObject debugPrefab;
+
 }
