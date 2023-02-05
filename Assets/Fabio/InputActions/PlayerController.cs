@@ -23,16 +23,6 @@ public class PlayerController : MonoBehaviour
     }
     private void OnEnable()
     {
-        if (player.playerID == Player.PlayerID.Player1)
-        {
-            move = characterInputs.Player.MoveP1;
-        } else
-        {
-            move = characterInputs.Player.MoveP2;
-        }
-        
-        move.Enable();
-
         plantSeed = characterInputs.Player.Fire;
         plantSeed.Enable();
         plantSeed.performed += PlantSeed;

@@ -495,7 +495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3363363855854580849, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
       propertyPath: m_DefaultControlScheme
-      value: 
+      value: Keyboard&Mouse
       objectReference: {fileID: 0}
     - target: {fileID: 3363363855854580849, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
       propertyPath: m_NotificationBehavior
@@ -8280,7 +8280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3363363855854580849, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
       propertyPath: m_DefaultControlScheme
-      value: 
+      value: Gamepad
       objectReference: {fileID: 0}
     - target: {fileID: 3363363855854580849, guid: b70cc70a4385ec94c8d747f3f25bf09a, type: 3}
       propertyPath: m_NotificationBehavior
