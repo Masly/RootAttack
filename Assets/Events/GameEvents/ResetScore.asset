@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7200684b2ddd18b4791a427c89c97803, type: 3}
-  m_Name: Test Square Event
+  m_Script: {fileID: 11500000, guid: f3a8a7af0f7345d47acacf5ee1f8d5bd, type: 3}
+  m_Name: ResetScore
   m_EditorClassIdentifier: 
   alreadyRaised: 0

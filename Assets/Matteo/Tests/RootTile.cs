@@ -11,6 +11,7 @@ public class RootTile : Tile
 
     [HideInInspector] public RootTileData tileData;
     public PrefabsSO gamePrefabs;
+    public SquareRootsEventsSO squareEvents;
 
     public override bool StartUp(Vector3Int location, ITilemap tilemap, GameObject go)
     {
@@ -18,6 +19,7 @@ public class RootTile : Tile
         tileData = new RootTileData();
         tileController = new RootTileController(tileData);
         tileController.gamePrefabs = gamePrefabs;
+        tileController.eventsSO = squareEvents;
         //spawner = new PrefabSpawner();
 
         //tileController = new RootTileController(spawner);

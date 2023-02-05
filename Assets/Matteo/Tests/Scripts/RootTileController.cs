@@ -10,6 +10,7 @@ public class RootTileController
 
     public GameObject tempPrefab;
     public PrefabsSO gamePrefabs;
+    public SquareRootsEventsSO eventsSO;
 
     public List<RootTileController> connectedTiles = new List<RootTileController>();
 

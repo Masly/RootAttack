@@ -42,3 +42,4 @@ MonoBehaviour:
     tileState: 0
     spawnPosition: {x: 0, y: 0, z: -10}
   gamePrefabs: {fileID: 11400000, guid: dc22e1a06be399c4384203107cbf964b, type: 2}
+  squareEvents: {fileID: 11400000, guid: 9a21c0b800c48cc49977dde72728da3d, type: 2}

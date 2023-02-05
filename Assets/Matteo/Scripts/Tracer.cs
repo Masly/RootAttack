@@ -100,6 +100,10 @@ public class Tracer
 
     public void FlagAsConnected(RootTileController controller)
     {
+        if (currentTile.tileData.isConnectedToTree == true) return;
+        bool isPlayer1 = currentTile.tileData.rootOwner == Player.PlayerID.Player1;
+        GameEvent eventToRaise = isPlayer1 ? currentTile.eventsSO.player1IncreaseScoreEvent : currentTile.eventsSO.player2IncreaseScoreEvent;
+        eventToRaise.Raise();
         currentTile.tileData.isConnectedToTree = true;
         currentTile.spawner.SpawnDebug(currentTile);
     }

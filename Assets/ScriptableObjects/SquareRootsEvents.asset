@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a4fe076367585489e68b1bbb30e4da, type: 3}
+  m_Name: SquareRootsEvents
+  m_EditorClassIdentifier: 
+  player1IncreaseScoreEvent: {fileID: 11400000, guid: c82fdc8fd1568214e86bb78b7fff8260, type: 2}
+  player2IncreaseScoreEvent: {fileID: 11400000, guid: c4cf1645ebb1ae644b853288f4964ef4, type: 2}
+  resetScoreEvent: {fileID: 11400000, guid: 5871a7ee744f4ba49883aa72028aed2d, type: 2}

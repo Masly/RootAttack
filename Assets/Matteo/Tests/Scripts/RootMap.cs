@@ -28,6 +28,7 @@ public class RootMap : MonoBehaviour
     public List<Tracer> tracersToBeAdded = new List<Tracer>();
 
     public Vector2Int tracingStart;
+    public SquareRootsEventsSO squareRootEvents;
 
     void Awake()
     {
@@ -80,7 +81,7 @@ public class RootMap : MonoBehaviour
         mockupTree.tileData.tileState = RootTileData.TileState.TreeOrigin;
         mockupTree.tileData.isConnectedToTree = true;
         Tracer newTracer = new Tracer(mockupTree, null);
-
+        squareRootEvents.resetScoreEvent.Raise();
     }
 
     void ResetPosHack()
