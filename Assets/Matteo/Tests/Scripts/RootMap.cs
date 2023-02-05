@@ -148,15 +148,21 @@ public class RootMap : MonoBehaviour
 
     public List<RootTileController> GetNeighbourTiles(Vector2Int pos)
     {
+        //Debug.LogError("NON ERRORE importante: se le radici vanno oltre i muri controlla RotMap.GetNeighbourTiles");
         List<RootTileController> neighbours = new List<RootTileController>();
-        if (pos.x < maxGridWidth - 1)
+        if (pos.x < maxGridWidth)
             neighbours.Add(GetTile(new Vector2Int(pos.x + 1, pos.y)));
-        if (pos.x > minGridWidth + 1)
+        if (pos.x > minGridWidth)
             neighbours.Add(GetTile(new Vector2Int(pos.x - 1, pos.y)));
-        if (pos.y < maxGridHeight - 1)
+        if (pos.y < maxGridHeight)
             neighbours.Add(GetTile(new Vector2Int(pos.x, pos.y + 1)));
-        if (pos.y > minGridWidth + 1)
+        if (pos.y > minGridWidth)
             neighbours.Add(GetTile(new Vector2Int(pos.x, pos.y - 1)));
+        for (int i = neighbours.Count - 1; i >= 0; i--)
+        {
+            if (neighbours[i].tileData.tileState == RootTileData.TileState.Obstacle)
+                neighbours.RemoveAt(i);
+        }
         return neighbours;
     }
 
