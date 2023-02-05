@@ -53,6 +53,6 @@ public class PlayerController : MonoBehaviour
 
     public void PlantSeed(InputAction.CallbackContext context)
     {
-        Debug.Log("We do be plantin'");
+        GetComponent<Player>().SpawnRoots();
     }
 }

@@ -12,7 +12,7 @@ public class SquareEvent : ScriptableObject
 
     public void Raise(Vector2Int coord)
     {
-        Debug.LogWarning($"Raised event {this.name}");
+        Debug.LogWarning($"Raised event {this.name} at coord {coord}");
         alreadyRaised = true;
         //It iterates backwards so if a listener gets removed during the loop it doesn't interfere with the loop cycle
         for (int i = listeners.Count - 1; i >= 0; i--)

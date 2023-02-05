@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7961366690580937192}
   - component: {fileID: 7961366690580937193}
   - component: {fileID: 7961366690580937199}
+  - component: {fileID: 1697281023}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -52,6 +53,7 @@ MonoBehaviour:
   minGridHeight: -12
   maxGridWidth: 8
   maxGridHeight: 5
+  cellSize: 1
 --- !u!114 &7961366690580937199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,3 +70,56 @@ MonoBehaviour:
   stepsToFill: 5
   targetPosition: {x: 3, y: 3}
   fillInterval: 1
+--- !u!114 &1697281023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7961366690580937194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ffbd1c11ca69d49bea58c02be946aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  events:
+  - triggers:
+    - {fileID: 11400000, guid: e0813a999313fa24e8e3a90dcb8ce0bb, type: 2}
+    responses:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7961366690580937199}
+          m_TargetAssemblyTypeName: RootSpawner, Assembly-CSharp
+          m_MethodName: Player1GrowRoots
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    triggersOnce: 0
+    delay: 0
+    alreadyTriggered: 0
+  - triggers:
+    - {fileID: 11400000, guid: c1e03f0debcc5c744b2ef5f9e2c94a36, type: 2}
+    responses:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7961366690580937199}
+          m_TargetAssemblyTypeName: RootSpawner, Assembly-CSharp
+          m_MethodName: Player2GrowRoots
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    triggersOnce: 0
+    delay: 0
+    alreadyTriggered: 0
