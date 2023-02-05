@@ -23,16 +23,12 @@ public class PlayerController : MonoBehaviour
     }
     private void OnEnable()
     {
-        plantSeed = characterInputs.Player.Fire;
-        plantSeed.Enable();
-        plantSeed.performed += PlantSeed;
+       
 
         pauseGame = characterInputs.Player.PauseGame;
         pauseGame.Enable();
         pauseGame.performed += PauseGame;
     }
-
-    
 
     private void OnDisable()
     {
@@ -44,7 +40,19 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = transform.GetComponent<Rigidbody2D>();
-        player = transform.gameObject.GetComponent<Player>();
+        player = transform.GetComponent<Player>();
+
+        if (player.playerID == Player.PlayerID.Player1)
+        {
+            plantSeed = characterInputs.Player.FireP1;
+        }
+        else
+        {
+            plantSeed = characterInputs.Player.FireP2;
+        }
+
+        plantSeed.Enable();
+        plantSeed.performed += PlantSeed;
 
         if (player.playerID == Player.PlayerID.Player1)
         {
@@ -71,7 +79,8 @@ public class PlayerController : MonoBehaviour
 
     public void PlantSeed(InputAction.CallbackContext context)
     {
-        GetComponent<Player>().SpawnRoots();
+        print(player.playerID);
+        player.SpawnRoots();
     }
 
     public void PauseGame(InputAction.CallbackContext context)

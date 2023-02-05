@@ -55,9 +55,18 @@ public partial class @CharacterInputs : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""FireP1"",
                     ""type"": ""Button"",
                     ""id"": ""b0a437cc-705f-430a-8cd2-e890395bb361"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FireP2"",
+                    ""type"": ""Button"",
+                    ""id"": ""995147e5-12b5-4df5-8047-2fe3f54f2322"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -147,7 +156,7 @@ public partial class @CharacterInputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Fire"",
+                    ""action"": ""FireP1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -158,7 +167,7 @@ public partial class @CharacterInputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Fire"",
+                    ""action"": ""FireP1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -169,7 +178,7 @@ public partial class @CharacterInputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Touch"",
-                    ""action"": ""Fire"",
+                    ""action"": ""FireP1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -180,7 +189,7 @@ public partial class @CharacterInputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Joystick"",
-                    ""action"": ""Fire"",
+                    ""action"": ""FireP1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -191,7 +200,7 @@ public partial class @CharacterInputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""XR"",
-                    ""action"": ""Fire"",
+                    ""action"": ""FireP1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -324,6 +333,61 @@ public partial class @CharacterInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Joystick"",
                     ""action"": ""MoveP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b179af58-dbe2-46b8-bdfa-a220efd84013"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""FireP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b0035b24-866e-4122-b797-9b948899d756"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""FireP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d8cb3e8e-932e-4e55-ab76-1ee1fc7ef12b"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touch"",
+                    ""action"": ""FireP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6423d8f3-7efd-415f-8a60-01adbf0dace7"",
+                    ""path"": ""<Joystick>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""FireP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9ba0b121-cca6-4846-b2b9-2147d7c1b5ec"",
+                    ""path"": ""<XRController>/{PrimaryAction}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XR"",
+                    ""action"": ""FireP2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -914,7 +978,8 @@ public partial class @CharacterInputs : IInputActionCollection2, IDisposable
         m_Player_MoveP1 = m_Player.FindAction("MoveP1", throwIfNotFound: true);
         m_Player_MoveP2 = m_Player.FindAction("MoveP2", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+        m_Player_FireP1 = m_Player.FindAction("FireP1", throwIfNotFound: true);
+        m_Player_FireP2 = m_Player.FindAction("FireP2", throwIfNotFound: true);
         m_Player_PauseGame = m_Player.FindAction("PauseGame", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -990,7 +1055,8 @@ public partial class @CharacterInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MoveP1;
     private readonly InputAction m_Player_MoveP2;
     private readonly InputAction m_Player_Look;
-    private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_FireP1;
+    private readonly InputAction m_Player_FireP2;
     private readonly InputAction m_Player_PauseGame;
     public struct PlayerActions
     {
@@ -999,7 +1065,8 @@ public partial class @CharacterInputs : IInputActionCollection2, IDisposable
         public InputAction @MoveP1 => m_Wrapper.m_Player_MoveP1;
         public InputAction @MoveP2 => m_Wrapper.m_Player_MoveP2;
         public InputAction @Look => m_Wrapper.m_Player_Look;
-        public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @FireP1 => m_Wrapper.m_Player_FireP1;
+        public InputAction @FireP2 => m_Wrapper.m_Player_FireP2;
         public InputAction @PauseGame => m_Wrapper.m_Player_PauseGame;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -1019,9 +1086,12 @@ public partial class @CharacterInputs : IInputActionCollection2, IDisposable
                 @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                @FireP1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFireP1;
+                @FireP1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFireP1;
+                @FireP1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFireP1;
+                @FireP2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFireP2;
+                @FireP2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFireP2;
+                @FireP2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFireP2;
                 @PauseGame.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseGame;
                 @PauseGame.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseGame;
                 @PauseGame.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseGame;
@@ -1038,9 +1108,12 @@ public partial class @CharacterInputs : IInputActionCollection2, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
-                @Fire.started += instance.OnFire;
-                @Fire.performed += instance.OnFire;
-                @Fire.canceled += instance.OnFire;
+                @FireP1.started += instance.OnFireP1;
+                @FireP1.performed += instance.OnFireP1;
+                @FireP1.canceled += instance.OnFireP1;
+                @FireP2.started += instance.OnFireP2;
+                @FireP2.performed += instance.OnFireP2;
+                @FireP2.canceled += instance.OnFireP2;
                 @PauseGame.started += instance.OnPauseGame;
                 @PauseGame.performed += instance.OnPauseGame;
                 @PauseGame.canceled += instance.OnPauseGame;
@@ -1203,7 +1276,8 @@ public partial class @CharacterInputs : IInputActionCollection2, IDisposable
         void OnMoveP1(InputAction.CallbackContext context);
         void OnMoveP2(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnFire(InputAction.CallbackContext context);
+        void OnFireP1(InputAction.CallbackContext context);
+        void OnFireP2(InputAction.CallbackContext context);
         void OnPauseGame(InputAction.CallbackContext context);
     }
     public interface IUIActions

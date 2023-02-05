@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7961366690580937194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.92844284, y: -2.0080433, z: -9.853547}
+  m_LocalPosition: {x: 0, y: 0, z: -9.853547}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54,6 +54,9 @@ MonoBehaviour:
   maxGridWidth: 8
   maxGridHeight: 5
   cellSize: 1
+  tracers: []
+  tracersToBeAdded: []
+  tracingStart: {x: 0, y: 0}
 --- !u!114 &7961366690580937199
 MonoBehaviour:
   m_ObjectHideFlags: 0
