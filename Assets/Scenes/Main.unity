@@ -1012,7 +1012,7 @@ AudioSource:
   m_GameObject: {fileID: 516993034}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7227298144186602854, guid: e4f4139ce058fc04fb31094633ae2b0c, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1170,7 +1170,7 @@ MonoBehaviour:
   fightTheme: {fileID: 516993035}
   victory: {fileID: 315266316}
   timeOut: {fileID: 1286178418}
-  countDown: {fileID: 0}
+  countDown: {fileID: 2145396128}
 --- !u!4 &517060712
 Transform:
   m_ObjectHideFlags: 0
