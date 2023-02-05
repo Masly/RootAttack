@@ -19,6 +19,7 @@ public class Tracer
     /* if this returns false, delete tracer*/
     public bool Tick()
     {
+        Debug.LogWarning("tick");
 
         availableConnections = currentTile.connectedTiles;
         bool allConnectionsAreFlagged = true;
@@ -45,8 +46,7 @@ public class Tracer
             case 1:
 
                 //bool isConnectedOnlyToTree = availableConnections[0].tileData.tileState == RootTileData.TileState.TreeOrigin;
-                bool isThisTree = currentTile.tileData.tileState == RootTileData.TileState.TreeOrigin1 ||
-                                    currentTile.tileData.tileState == RootTileData.TileState.TreeOrigin2;
+                bool isThisTree = currentTile.tileData.tileState == RootTileData.TileState.TreeOrigin;
                 if (!isThisTree)
                 {
                     FlagAsConnected(currentTile);
@@ -101,12 +101,14 @@ public class Tracer
 
     public void FlagAsConnected(RootTileController controller)
     {
-        if (currentTile.tileData.isConnectedToTree == true) return;
+
+        Debug.LogWarning("increasing score");
         bool isPlayer1 = currentTile.tileData.rootOwner == Player.PlayerID.Player1;
         GameEvent eventToRaise = isPlayer1 ? currentTile.eventsSO.player1IncreaseScoreEvent : currentTile.eventsSO.player2IncreaseScoreEvent;
-        eventToRaise.Raise();
+        // eventToRaise.Raise();
+        if (currentTile.tileData.isConnectedToTree == true) return;
         currentTile.tileData.isConnectedToTree = true;
-        currentTile.spawner.SpawnDebug(currentTile);
+        //currentTile.spawner.SpawnDebug(currentTile);
     }
 
 

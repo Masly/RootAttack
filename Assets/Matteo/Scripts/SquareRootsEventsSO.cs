@@ -7,6 +7,4 @@ public class SquareRootsEventsSO : ScriptableObject
     public GameEvent player1IncreaseScoreEvent;
     public GameEvent player2IncreaseScoreEvent;
     public GameEvent resetScoreEvent;
-
-    public SquareEvent rootSpawnedEvent;
 }
