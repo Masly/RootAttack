@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     public void SpawnRoots()
     {
         Vector2Int coord = GetMapCoord(transform.position);
-        //coord.y += 3;
         spawnEventToRaise.Raise(coord);
     }
 
