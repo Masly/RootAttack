@@ -23,8 +23,6 @@ public class PlayerController : MonoBehaviour
     }
     private void OnEnable()
     {
-       
-
         pauseGame = characterInputs.Player.PauseGame;
         pauseGame.Enable();
         pauseGame.performed += PauseGame;
@@ -79,8 +77,11 @@ public class PlayerController : MonoBehaviour
 
     public void PlantSeed(InputAction.CallbackContext context)
     {
-        print(player.playerID);
-        player.SpawnRoots();
+        if ((player.playerID == Player.PlayerID.Player1 && plantSeed == characterInputs.Player.FireP1) ||
+            (player.playerID == Player.PlayerID.Player2 && plantSeed == characterInputs.Player.FireP2))
+        {
+            player.SpawnRoots();
+        }
     }
 
     public void PauseGame(InputAction.CallbackContext context)
